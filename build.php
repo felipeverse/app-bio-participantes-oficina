@@ -19,6 +19,9 @@ if (is_dir($bios_directory)) {
 
     closedir($diretorio);
 
+    // Ordena o array pela chave (nome do arquivo)
+    ksort($bios_files);
+
     $json_resultado = json_encode($bios_files, JSON_PRETTY_PRINT);
     file_put_contents('data.json', $json_resultado);
 } else {

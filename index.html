@@ -5,88 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bios</title>
 
-    <!-- Adicione o link para o arquivo Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    <!-- Espaço para exibir a lista de bios -->
-    <div id="bios-list"></div>
+    <div class="container my-4">
+        <h2>Participantes da oficina</h2>
+
+        <div class="my-4">
+            <!-- Espaço para exibir a lista de bios -->
+            <div class="list-group" id="bios-list"></div>
+        </div>
+    </div>
 </body>
 
 <script>
-function carregarData() {
-    const caminhoArquivo = 'data.json';
+    // Função para carregar dados com a bio dos participantes do arquivo data.json
+    function carregarData() {
+        const caminhoArquivo = 'data.json';
 
-    fetch(caminhoArquivo)
-        .then(response => response.json())
-        .then(data => {
-            // Obtém o elemento onde a lista será exibida
-            const listaLinks = document.getElementById('bios-list');
+        fetch(caminhoArquivo)
+            .then(response => response.json())
+            .then(data => {
+                const biosList = document.getElementById('bios-list');
 
-            // Cria a lista de links
-            const lista = document.createElement('ul');
+                // Adiciona cada item de bios como um link
+                for (const chave in data) {
+                    const link = document.createElement('a');
+                    link.href = '#';
+                    link.textContent = chave;
+                    link.classList.add('list-group-item');
+                    link.classList.add('list-group-item-action');
 
-            // Adiciona cada chave do objeto como um link
-            for (const chave in data) {
-                const link = document.createElement('a');
-                link.href = '#';
-                link.textContent = chave;
+                    console.log(chave, data[chave]);
 
-                // Adiciona um evento de clique para exibir o modal com o conteúdo
-                link.addEventListener('click', function() {
-                    exibirModal(data[chave]);
-                });
+                    // Adiciona um evento de clique para exibir o modal com o conteúdo
+                    link.addEventListener('click', function() {
+                        event.preventDefault();
+                        exibirModal(chave, data[chave]);
+                    });
 
-                const listItem = document.createElement('li');
-                listItem.appendChild(link);
+                    biosList.appendChild(link);
+                }
+            })
+            .catch(error => console.error('Erro ao carregar o arquivo data.json:', error));
+    }
 
-                lista.appendChild(listItem);
-            }
+    // Função para exibir o modal com o conteúdo
+    function exibirModal(tittle, text) {
+        const modalTitle = document.getElementById('conteudoModalLabel');
+        modalTitle.textContent = 'Bio do participante: ' + tittle;
 
-            // Adiciona a lista ao elemento na página
-            listaLinks.appendChild(lista);
-        })
-        .catch(error => console.error('Erro ao carregar o arquivo data.json:', error));
-}
+        const formatedText = text
+            .replace(/\n/g, '<br>')        // Nova linha
+            .replace(/\t/g, '&nbsp;&nbsp;') // Tabulação
+            .replace(/\r/g, '');           // Retorno de carro
 
-// Função para exibir o modal com o conteúdo
-function exibirModal(conteudo) {
-    const conteudoFormatado = conteudo
-        .replace(/\n/g, '<br>')        // Nova linha
-        .replace(/\t/g, '&nbsp;&nbsp;') // Tabulação
-        .replace(/\r/g, '');           // Retorno de carro
+        const modalBody = document.getElementById('modalBody');
+        modalBody.innerHTML = formatedText;
 
-    const modalBody = document.getElementById('modalBody');
-    modalBody.innerHTML = conteudoFormatado;
+        // Exibe o modal
+        $('#conteudoModal').modal('show');
+    }
 
-    // Exibe o modal
-    $('#conteudoModal').modal('show');
-}
-
-// Chama a função para carregar e manipular o conteúdo do arquivo
-carregarData();
+    // Chama a função para carregar e manipular o conteúdo do arquivo
+    carregarData();
 </script>
 
-<!-- Modal -->
-<div class="modal fade" id="conteudoModal" tabindex="-1" role="dialog" aria-labelledby="conteudoModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
+<!-- Modal com a bio do participante-->
+<div class="modal fade" id="conteudoModal" tabindex="-1" aria-labelledby="conteudoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="conteudoModalLabel">Conteúdo da bio</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-            <span aria-hidden="true">&times;</span>
-            </button>
+          <h5 class="modal-title" id="conteudoModalLabel">...</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar">
+          </button>
         </div>
         <div class="modal-body" id="modalBody">
-            <!-- O conteúdo do item será inserido aqui -->
+            ...
         </div>
-        </div>
+      </div>
     </div>
 </div>
 
-<!-- Adicione o link para o arquivo Bootstrap JS e o Popper.js -->
+<!-- scripts Bootstrap and Jquery -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </html>
