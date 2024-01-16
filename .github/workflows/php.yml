@@ -21,4 +21,4 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Execute PHP script
-      run: php build.php
+      run: sh -c "php build.php"
