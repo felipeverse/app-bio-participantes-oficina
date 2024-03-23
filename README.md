@@ -29,7 +29,7 @@ Este repositório é uma aplicação simples desenvolvida para a palestra de ver
 
 ## Como Visualizar as Contribuições
 
-Você pode ver as contribuições dos participantes na [página do GitHub Pages](https://felipeverse.github.io/app-bios-participantes).
+Você pode ver as contribuições dos participantes na [página do GitHub Pages](https://felipeverse.github.io/app-bio-participantes-oficina/).
 
 ## Licença
 
