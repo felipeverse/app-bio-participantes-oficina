@@ -1,5 +1,5 @@
 
-# App Bios Participantes da Oficina de Versionamento de Código com Git e Github
+# App Bio dos participantes da Oficina de Versionamento de Código com Git e Github
 
 Este repositório é uma aplicação simples desenvolvida para a palestra de versionamento de código com Git e Github, ministrada durante o evento "Oficinas de Informática e TI" da Universidade Federal de Rondonópolis. Na palestra, os participantes aprenderam e praticaram os conceitos essenciais do Git e Github através desta aplicação.
 
