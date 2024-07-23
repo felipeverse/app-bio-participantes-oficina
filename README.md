@@ -4,7 +4,7 @@
 Este repositório é uma aplicação simples desenvolvida para a palestra de versionamento de código com Git e Github, ministrada durante o evento "Oficinas de Informática e TI" da Universidade Federal de Rondonópolis. Na palestra, os participantes aprenderam e praticaram os conceitos essenciais do Git e Github através desta aplicação.
 
 
-![Apresentação Oficina de Versioanemento de código com Git e Github](https://snz04pap001files.storage.live.com/y4mVM7_vV806ZXRkdHj31fClygmnlevR29SKuefbr7M_b_CsaVaX-nfvnZLOYZX1wKsCXzik44isdEIH2wdepNy3zdO0MbrMn0bklg-3Rsqh7Ggj3k8mvR6QqZGXErkk45nb4A99tchCgyvKldATSk10XNf6dXSX3XgMBGqygYIrSsWgDFpQ8QEMl58pt13sAMpQZZEs0scWvRCu4Ef3V1SWf80LxwNe8T9q5tzKTM7bZc?encodeFailures=1&width=884&height=884)
+![Apresentação Oficina de Versioanemento de código com Git e Github](img/70a44e80-8fec-4f16-9ebd-7cda1a978e91.jpeg)
 
 ## Tecnologias Utilizadas
 
